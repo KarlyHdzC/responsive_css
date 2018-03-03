@@ -1,0 +1,308 @@
+/*
+    Bloqueamos la barra de navegación,
+    el header y el footer
+*/
+nav,header,footer{
+    display:block;
+}
+
+/*
+    Quitamos el margen al cuerpo
+    para que ocupe toda la vista
+*/
+body {
+    line-height: 1;
+    margin:0;
+}
+
+/*
+    Toma todo el ancho para la barra de navegacion
+*/
+nav{
+    width:100%;
+    margin:0;
+}
+
+nav ul {
+    /*
+        Damos fondo a los elementos de la barra de navegación
+    */
+    background-color:#eee;
+    /*
+        No permite un scroll horizontal
+    */
+    overflow: hidden;
+    margin:0;
+    padding:0;
+}
+
+ul.nav li{
+    /*No se muestran en lista*/
+    list-style: none;
+    /*Se apegaran todos los elementos a la izquierda*/
+    float:left;
+}
+
+/*
+    Movemos elementos en nuestra barra
+    de navegación a la derecha
+*/
+ul.nav li.nav-right{
+    float:right;
+}
+
+/*
+    Quitamos la decoración de las url
+    y damos estilo a los elementos
+*/
+ul.nav li a{
+    display:block;
+    text-decoration: none;
+    min-height: 15px;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+    color:rgb(0, 0, 0)
+}
+
+/*
+    Efecto hover
+*/
+ul.nav li a:hover {
+    background-color: rgb(163, 163, 163);
+    color:#fff;
+}
+
+ul.nav li.burguer {
+    /*Escondemos la hamburguesa*/
+    display:none;
+}
+
+/*
+    Contenedor que toma todo el ancho y 
+    centrado con margen automatico y un padding
+*/
+.container {
+    width:100%;
+    margin:auto;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+/*
+    Estilo personalizado del primer contenedor
+*/
+#container_1 {
+    background: rgb(243, 192, 143);
+}
+
+div.box {
+    text-align: center;
+    margin: 24px;
+    border-radius: 7px;
+    padding-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15), 
+            0 2px 3px 0 rgba(0,0,0,.1);
+}
+
+div.image {
+    width:100%;
+    align-items: center;
+}
+
+label {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 25px;
+    line-height: 1.0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/*
+    Centramos el titulo del contenedor Header
+*/
+h1.sectionHeader {
+    font-size: 65px;
+    text-align: center;
+}
+
+/*
+    Clase de una columna
+*/
+.row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/*
+    Quita los elementos de la derecha e izquierda
+*/
+.row::after {
+    display: table;
+    clear: both;
+    content:"";
+}
+
+.col-1{width:8.33%}
+.col-2{width:16.66%}
+.col-3{width:25%}
+.col-4{width:33.33%}
+.col-5{width:41.66%}
+.col-6{width:50%}
+.col-7{width:58.33%}
+.col-8{width:66.66%}
+.col-9{width:75%}
+.col-10{width:83.33%}
+.col-11{width:91.66%}
+.col-12{width:100%}
+
+/*
+    Separamos el elemento de la izquierda 30%
+*/
+div.left-col {
+    margin-left: 30%;
+}
+
+/*
+    Separamos el elemento de la derecha al 15%
+*/
+div.right-col {
+    margin-right: 15%;
+}
+
+h1.large {
+    color: #fff;
+    font-size: 35px;
+    /*Quitamos espacio entre los textos*/
+    margin:0;
+    line-height: 50px;
+}
+
+/*
+    Damos fondo al footer y damos padding 
+    a la derecha y a la izquierda
+*/
+footer.mainFooter{
+    background-color:gray;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+/*
+    Color a la fuente del header
+*/
+footer.mainFooter h1{
+    color:#fff;
+    font-size: 35px;
+}
+
+/*
+    Quitamos boolets, damos formato y padding a la izquierda
+*/
+footer.mainFooter ul{
+    list-style: none;
+    text-align: left;
+    padding-left: 0;
+}
+
+/*
+    Damos separacion entre lineas y formato a los elementos
+*/
+footer.mainFooter ul li{
+    color:#fff;
+    font-size: 22px;
+    line-height: 1.5;
+
+}
+
+/*
+    Detectamos una resolucion portatil
+    y manipulamos la vista, desaparecemos
+    todos los elementos li excepto el primer elemento
+*/
+@media screen and (max-width: 680px){
+    /*
+        Mostramos solamente Home
+    */
+    ul.nav li:not(:nth-child(1)){
+        display: none;
+    }
+    /*
+        Mostramos el menú hamburguesa
+    */
+    ul.nav li.burguer {
+        display: block;
+        float: right;
+    }
+    /*
+        Mantenemos la hamburguesa en la parte superior
+        derecha con posicion absoluta si es que se llama de la clase responsive
+    */
+    ul.nav.responsive li.burguer{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    /*
+        La nueva clase tiene una posición relativa
+    */
+    ul.nav.responsive {
+        position: relative;
+    }
+    /*
+        Los elementos li de la clase responsive
+        se muestran en linea
+    */
+    ul.nav.responsive li {
+        display: inline;
+        float: none;
+    }
+    /*
+        Cada uno de los "a href" de los elementos 
+        de la clase responsive en la navegacion
+        se mostraran a la izquierda
+    */
+    ul.nav.responsive li a {
+        display: block;
+        text-align: left;
+    }
+    /*
+        Anchura del 100% y centrado
+    */
+    .col-6, 
+    .col-3 {
+        width: 100%;
+        margin: 0;
+    }
+
+    div.mobile {
+        width:50%;
+        margin:0;
+    }
+
+    div.box {
+        padding: 5px;
+        display: block;
+    }
+
+    div.left-col, div.right-col { 
+        margin: 15px;
+    }
+
+    .videoContainer iframe{
+        position: relative;
+        width:100%;
+        margin:0;
+        overflow: hidden;
+    }
+}
+
